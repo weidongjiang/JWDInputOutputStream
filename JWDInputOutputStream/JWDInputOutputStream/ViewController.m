@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "JWDInteractionLogger.h"
 
 @interface ViewController ()<NSStreamDelegate>
 
@@ -31,6 +32,16 @@
     [write setTitle:@"写文件" forState:UIControlStateNormal];
     [write addTarget:self action:@selector(doTestOutputStream) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:write];
+    
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    NSLog(@"infoDictionary---%@",infoDictionary);
+    NSString *appName = [infoDictionary objectForKey:@""];
+    
+    NSString *version = [infoDictionary objectForKey:@""];
+    
+    for (int i = 0; i<100; i++) {
+        [[JWDInteractionLogger shareInteractionLogger] writeLogWithLogString:[NSString stringWithFormat:@"今天是好日子，好早 %d",i] fileName:@"日志"];
+    }
     
 }
 

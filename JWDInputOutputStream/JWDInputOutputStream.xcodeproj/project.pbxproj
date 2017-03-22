@@ -13,6 +13,7 @@
 		768805721E7BBCDA00F0ED12 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 768805701E7BBCDA00F0ED12 /* Main.storyboard */; };
 		768805741E7BBCDA00F0ED12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 768805731E7BBCDA00F0ED12 /* Assets.xcassets */; };
 		768805771E7BBCDA00F0ED12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 768805751E7BBCDA00F0ED12 /* LaunchScreen.storyboard */; };
+		76D097861E82782E00DCB3D5 /* JWDInteractionLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D097851E82782E00DCB3D5 /* JWDInteractionLogger.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		768805731E7BBCDA00F0ED12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		768805761E7BBCDA00F0ED12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		768805781E7BBCDA00F0ED12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		76D097841E82782E00DCB3D5 /* JWDInteractionLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWDInteractionLogger.h; sourceTree = "<group>"; };
+		76D097851E82782E00DCB3D5 /* JWDInteractionLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWDInteractionLogger.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +65,8 @@
 				7688056B1E7BBCDA00F0ED12 /* AppDelegate.m */,
 				7688056D1E7BBCDA00F0ED12 /* ViewController.h */,
 				7688056E1E7BBCDA00F0ED12 /* ViewController.m */,
+				76D097841E82782E00DCB3D5 /* JWDInteractionLogger.h */,
+				76D097851E82782E00DCB3D5 /* JWDInteractionLogger.m */,
 				768805701E7BBCDA00F0ED12 /* Main.storyboard */,
 				768805731E7BBCDA00F0ED12 /* Assets.xcassets */,
 				768805751E7BBCDA00F0ED12 /* LaunchScreen.storyboard */,
@@ -153,6 +158,7 @@
 			files = (
 				7688056F1E7BBCDA00F0ED12 /* ViewController.m in Sources */,
 				7688056C1E7BBCDA00F0ED12 /* AppDelegate.m in Sources */,
+				76D097861E82782E00DCB3D5 /* JWDInteractionLogger.m in Sources */,
 				768805691E7BBCDA00F0ED12 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,6 +316,7 @@
 				7688057D1E7BBCDA00F0ED12 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
