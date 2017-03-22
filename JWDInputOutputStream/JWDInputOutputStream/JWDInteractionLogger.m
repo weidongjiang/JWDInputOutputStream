@@ -29,7 +29,6 @@ static JWDInteractionLogger *interactionLogger = nil;
     return interactionLogger;
 }
 
-
 - (void)writeLogWithLogString:(NSString *)logString fileName:(NSString *)fileName{
     
     if (self.writeLogStream == nil) {
@@ -109,22 +108,22 @@ static JWDInteractionLogger *interactionLogger = nil;
     if (isFileExists) {
         //存在
         NSError *err = nil;
-//        CGFloat fileSizeKB = [[fileManager attributesOfItemAtPath:filePath error:&err] fileSize] / 1024.0f;
-//        if (err) {
-//            NSLog(@"获取文件大小失败：%@",err.description);
-//        }
-//        if (fileSizeKB > 10240) {
-//            NSError *err = nil;
-//            BOOL isRmSuccess = [fileManager removeItemAtPath:filePath error:&err];
-//            if (!isRmSuccess) {
-//                NSLog(@"删除文件失败：%@",err.description);
-//            }
-//            BOOL isCreateFileSuccess = [fileManager createFileAtPath:filePath contents:nil attributes:nil];
-//            if (!isCreateFileSuccess) {
-//                NSLog(@"创建文件失败：%@",err.description);
-//                return nil;
-//            }
-//        }
+        float fileSizeKB = [[fileManager attributesOfItemAtPath:filePath error:&err] fileSize] / 1024.0f;
+        if (err) {
+            NSLog(@"获取文件大小失败：%@",err.description);
+        }
+        if (fileSizeKB > 10240) {
+            NSError *err = nil;
+            BOOL isRmSuccess = [fileManager removeItemAtPath:filePath error:&err];
+            if (!isRmSuccess) {
+                NSLog(@"删除文件失败：%@",err.description);
+            }
+            BOOL isCreateFileSuccess = [fileManager createFileAtPath:filePath contents:nil attributes:nil];
+            if (!isCreateFileSuccess) {
+                NSLog(@"创建文件失败：%@",err.description);
+                return nil;
+            }
+        }
     } else {
         //不存在
         NSError *err = nil;
