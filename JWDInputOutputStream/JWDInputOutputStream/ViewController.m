@@ -34,18 +34,23 @@
     [self.view addSubview:write];
     
     
-    for (int i = 0; i<100; i++) {
-        NSString *str = [NSString stringWithFormat:@"https://github.com/weidongjiang/JWDInputOutputStream/tree/master 喜欢就点个star %d",i];
-        [[JWDInteractionLogger shareInteractionLogger] writeLogWithLogString:str fileName:@"日志"];
-
-    }
+    UIButton *writeBtn = [[UIButton alloc] initWithFrame:CGRectMake(100, 300, 100, 50)];
+    writeBtn.backgroundColor = [UIColor redColor];
+    [writeBtn setTitle:@"封装的日志" forState:UIControlStateNormal];
+    [writeBtn addTarget:self action:@selector(writeBtnDid) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:writeBtn];
     
 }
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)writeBtnDid {
+    
+    for (int i = 0; i<100; i++) {
+        NSString *str = [NSString stringWithFormat:@"https://github.com/weidongjiang/JWDInputOutputStream/tree/master 喜欢就点个star %d",i];
+        [[JWDInteractionLogger shareInteractionLogger] writeLogWithLogString:str fileName:@"日志"];
+        
+    }
+    
 }
 
 
