@@ -29,7 +29,7 @@
     
     UIButton *write = [[UIButton alloc] initWithFrame:CGRectMake(100, 200, 100, 50)];
     write.backgroundColor = [UIColor redColor];
-    [write setTitle:@"写文件" forState:UIControlStateNormal];
+    [write setTitle:@"写入文件" forState:UIControlStateNormal];
     [write addTarget:self action:@selector(doTestOutputStream) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:write];
     
