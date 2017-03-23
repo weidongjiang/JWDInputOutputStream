@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7607FD841E8361D00030AE2B /* JWDOutputInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 7607FD831E8361D00030AE2B /* JWDOutputInputStream.m */; };
 		768805691E7BBCDA00F0ED12 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 768805681E7BBCDA00F0ED12 /* main.m */; };
 		7688056C1E7BBCDA00F0ED12 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7688056B1E7BBCDA00F0ED12 /* AppDelegate.m */; };
 		7688056F1E7BBCDA00F0ED12 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7688056E1E7BBCDA00F0ED12 /* ViewController.m */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7607FD821E8361D00030AE2B /* JWDOutputInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWDOutputInputStream.h; sourceTree = "<group>"; };
+		7607FD831E8361D00030AE2B /* JWDOutputInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWDOutputInputStream.m; sourceTree = "<group>"; };
 		768805641E7BBCDA00F0ED12 /* JWDInputOutputStream.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JWDInputOutputStream.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		768805681E7BBCDA00F0ED12 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7688056A1E7BBCDA00F0ED12 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -67,6 +70,8 @@
 				7688056E1E7BBCDA00F0ED12 /* ViewController.m */,
 				76D097841E82782E00DCB3D5 /* JWDInteractionLogger.h */,
 				76D097851E82782E00DCB3D5 /* JWDInteractionLogger.m */,
+				7607FD821E8361D00030AE2B /* JWDOutputInputStream.h */,
+				7607FD831E8361D00030AE2B /* JWDOutputInputStream.m */,
 				768805701E7BBCDA00F0ED12 /* Main.storyboard */,
 				768805731E7BBCDA00F0ED12 /* Assets.xcassets */,
 				768805751E7BBCDA00F0ED12 /* LaunchScreen.storyboard */,
@@ -157,6 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7688056F1E7BBCDA00F0ED12 /* ViewController.m in Sources */,
+				7607FD841E8361D00030AE2B /* JWDOutputInputStream.m in Sources */,
 				7688056C1E7BBCDA00F0ED12 /* AppDelegate.m in Sources */,
 				76D097861E82782E00DCB3D5 /* JWDInteractionLogger.m in Sources */,
 				768805691E7BBCDA00F0ED12 /* main.m in Sources */,
