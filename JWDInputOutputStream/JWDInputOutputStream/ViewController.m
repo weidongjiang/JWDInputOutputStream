@@ -47,8 +47,10 @@
     
     for (int i = 0; i<100; i++) {
         NSString *str = [NSString stringWithFormat:@"https://github.com/weidongjiang/JWDInputOutputStream/tree/master 喜欢就点个star %d",i];
-        [[JWDInteractionLogger shareInteractionLogger] writeLogWithLogString:str fileName:@"日志"];
         
+        [[JWDInteractionLogger shareInteractionLogger] writeLogWithLogString:str withfileName:@"日志"];
+        
+        JWDINSlog(str,@"宏定义的日志");
     }
     
 }

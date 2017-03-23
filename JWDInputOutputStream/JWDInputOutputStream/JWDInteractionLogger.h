@@ -10,13 +10,28 @@
 
 #import <Foundation/Foundation.h>
 
-#define JWDINSlog(logString,fileName) [JWDInteractionLogger writeLogWithLogString:logString fileName:fileName]
+/**
+ 只需要引入 宏 传递相应的参数
+
+ @param logString 需要记录的日志内容
+ @param fileName 日志文件名
+ @return 日志宏
+ */
+#define JWDINSlog(logString,fileName) [[JWDInteractionLogger shareInteractionLogger] writeLogWithLogString:logString withfileName:fileName]
+
+
 
 @interface JWDInteractionLogger : NSObject
 
 +(JWDInteractionLogger *)shareInteractionLogger;
 
-- (void)writeLogWithLogString:(NSString *)logString fileName:(NSString *)fileName;
+/**
+ 使用单例 调用
+
+ @param logString 需要记录的日志内容
+ @param fileName 日志文件名
+ */
+- (void)writeLogWithLogString:(NSString *)logString withfileName:(NSString *)fileName;
 
 @end
 

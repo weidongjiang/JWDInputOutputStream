@@ -29,7 +29,7 @@ static JWDInteractionLogger *interactionLogger = nil;
     return interactionLogger;
 }
 
-- (void)writeLogWithLogString:(NSString *)logString fileName:(NSString *)fileName{
+- (void)writeLogWithLogString:(NSString *)logString withfileName:(NSString *)fileName{
     
     if (self.writeLogStream == nil) {
         self.writeLogStream = [self creatStreamWithFileName:fileName];
