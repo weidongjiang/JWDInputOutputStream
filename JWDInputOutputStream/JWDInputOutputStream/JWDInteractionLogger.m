@@ -30,6 +30,7 @@ static JWDInteractionLogger *interactionLogger = nil;
     return interactionLogger;
 }
 
+
 - (void)writeLogWithLogString:(NSString *)logString withfileName:(NSString *)fileName{
     
     if (self.writeLogStream == nil) {
@@ -96,7 +97,7 @@ static JWDInteractionLogger *interactionLogger = nil;
         [forMatter setDateFormat:@"yyyy年MM月dd日 HH时mm分ss秒"];
         NSString *dateStr = [forMatter stringFromDate:date];
 
-        tempString = [tempString stringByAppendingFormat:@"appName--%@,version--%@,%@ \n %@ \n",appName,version,dateStr,logString];
+        tempString = [tempString stringByAppendingFormat:@"appName--%@,version--%@,date--%@ ,[文件名:%s]" "[函数名:%s]" "[行号:%d] \n %@ \n",appName,version,dateStr,[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __FUNCTION__,__LINE__,logString];
     }
     NSData *data = [tempString dataUsingEncoding:NSUTF8StringEncoding];
 

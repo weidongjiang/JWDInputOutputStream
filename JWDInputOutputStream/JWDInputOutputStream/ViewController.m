@@ -64,10 +64,11 @@
 - (void)writeBtnDid {
     
     self.writeBtn.backgroundColor = [UIColor greenColor];
-    
     for (int i = 0; i<100; i++) {
         NSString *str = [NSString stringWithFormat:@"https://github.com/weidongjiang/JWDInputOutputStream/tree/master 喜欢就点个star %d",i];
+        // 方式一
         [[JWDInteractionLogger shareInteractionLogger] writeLogWithLogString:str withfileName:JWDlogName];
+        // 方式二
         JWDINSlog(str,JWDINSlogName);
         if (i==99) {
             [self.writeBtn setTitle:@"写入完成" forState:UIControlStateNormal];
