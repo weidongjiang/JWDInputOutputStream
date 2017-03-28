@@ -11,7 +11,8 @@
 #import "JWDOutputInputStream.h"
 @interface ViewController ()<NSStreamDelegate>
 
-@property (nonatomic, assign) NSInteger location;//!< <#value#>
+@property (nonatomic, assign) NSInteger    location;//!< <#value#>
+@property (nonatomic, strong) UIButton     *writeBtn;//!< <#value#>
 
 @end
 
@@ -34,12 +35,18 @@
     [self.view addSubview:write];
     
     
-    UIButton *writeBtn = [[UIButton alloc] initWithFrame:CGRectMake(100, 300, 100, 50)];
+    UIButton *writeBtn = [[UIButton alloc] initWithFrame:CGRectMake(10, 300, 150, 50)];
+    self.writeBtn = writeBtn;
     writeBtn.backgroundColor = [UIColor redColor];
     [writeBtn setTitle:@"封装的日志" forState:UIControlStateNormal];
     [writeBtn addTarget:self action:@selector(writeBtnDid) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:writeBtn];
     
+    UIButton *sendLogBtn = [[UIButton alloc] initWithFrame:CGRectMake(200, 300, 150, 50)];
+    sendLogBtn.backgroundColor = [UIColor redColor];
+    [sendLogBtn setTitle:@"发送分享日志" forState:UIControlStateNormal];
+    [sendLogBtn addTarget:self action:@selector(sendLogBtnDid) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:sendLogBtn];
 }
 
 
@@ -56,11 +63,21 @@
 
 - (void)writeBtnDid {
     
+    self.writeBtn.backgroundColor = [UIColor greenColor];
+    
     for (int i = 0; i<100; i++) {
         NSString *str = [NSString stringWithFormat:@"https://github.com/weidongjiang/JWDInputOutputStream/tree/master 喜欢就点个star %d",i];
-        [[JWDInteractionLogger shareInteractionLogger] writeLogWithLogString:str withfileName:@"日志"];
-        JWDINSlog(str,@"宏定义的日志");
+        [[JWDInteractionLogger shareInteractionLogger] writeLogWithLogString:str withfileName:JWDlogName];
+        JWDINSlog(str,JWDINSlogName);
+        if (i==99) {
+            [self.writeBtn setTitle:@"写入完成" forState:UIControlStateNormal];
+        }
     }
-    
+}
+
+- (void)sendLogBtnDid {
+
+    [[JWDInteractionLogger shareInteractionLogger] sendLogFileWithFileName:JWDlogName];
+
 }
 @end

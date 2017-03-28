@@ -7,10 +7,11 @@
 //
 
 #import "JWDInteractionLogger.h"
+#import <UIKit/UIKit.h>
+@interface JWDInteractionLogger ()<NSStreamDelegate,UIDocumentInteractionControllerDelegate>
 
-@interface JWDInteractionLogger ()<NSStreamDelegate>
-
-@property (nonatomic, strong) NSOutputStream      *writeLogStream;//!< <#value#>
+@property (nonatomic, strong) NSOutputStream                    *writeLogStream;//!< <#value#>
+@property (nonatomic, strong) UIDocumentInteractionController   *interactionController;//!< <#value#>
 
 @end
 
@@ -41,6 +42,44 @@ static JWDInteractionLogger *interactionLogger = nil;
     self.writeLogStream = nil;
     
 }
+
+- (void)sendLogFileWithFileName:(NSString *)fileName {
+
+    NSURL *fileurl = [self getPathWithFileName:fileName];
+    
+    if (!fileurl) {
+        NSLog(@"日志文件不存在");
+        return;
+    }
+    
+    // 判断文件是否存在
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    BOOL isExists = [fileManager fileExistsAtPath:[fileurl path]];
+    if (!isExists) {
+        return;
+    }
+    // 获取文件大小
+    NSError *error = nil;
+    CGFloat fileSize = [[fileManager attributesOfItemAtPath:[fileurl path] error:&error] fileSize]/1024.0f;
+    if (error) {
+        NSLog(@"获取日志失败");
+        return;
+    }
+    if (fileSize == 0) {
+        NSLog(@"获取日志失败，文件不存在");
+    }else {
+        self.interactionController = [UIDocumentInteractionController interactionControllerWithURL:fileurl];
+        self.interactionController.delegate = self;
+        UIViewController *vc = [UIApplication sharedApplication].keyWindow.rootViewController;
+        while (vc.presentedViewController) {
+            vc = vc.presentedViewController;
+        }
+        if (vc!=nil) {
+            [self.interactionController presentOptionsMenuFromRect:vc.view.bounds inView:vc.view animated:YES];
+        }
+    }
+}
+
 
 - (NSData *)getDataWithLogString:(NSString *)logString {
 
@@ -90,7 +129,7 @@ static JWDInteractionLogger *interactionLogger = nil;
 -(NSURL *)getPathWithFileName:(NSString *)fileName {
     NSFileManager *fileManager = [NSFileManager defaultManager];
     
-    NSString *cacheDir = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).firstObject;
+    NSString *cacheDir = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
     BOOL isDir = TRUE;
     BOOL isDirExists = [fileManager fileExistsAtPath:cacheDir isDirectory:&isDir];
     

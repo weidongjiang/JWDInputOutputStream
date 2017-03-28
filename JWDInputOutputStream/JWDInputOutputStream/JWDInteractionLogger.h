@@ -11,6 +11,13 @@
 #import <Foundation/Foundation.h>
 
 /**
+ 日志文件名在这里 统一 标记，作为全局的名称
+
+ */
+#define JWDlogName     @"star"
+#define JWDINSlogName  @"more-star"
+
+/**
  只需要引入 宏 传递相应的参数
 
  @param logString 需要记录的日志内容
@@ -32,6 +39,13 @@
  @param fileName 日志文件名
  */
 - (void)writeLogWithLogString:(NSString *)logString withfileName:(NSString *)fileName;
+
+/**
+ 发送 和 分享日志文件，便于查阅
+
+ @param fileName 文件名
+ */
+- (void)sendLogFileWithFileName:(NSString *)fileName;
 
 @end
 
