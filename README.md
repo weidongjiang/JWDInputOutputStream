@@ -414,6 +414,8 @@ static JWDOutputInputStream *outputInputStream = nil;
 
 当测试美美来找你结束bug时，直接看日志，分析显示，他妈的数据错误，数据格式不对，各种jj，bug 直接抛出去。当然还是要和睦相处，共同为自家项目加油努力。
 
+如有考虑不周和错误的地方欢迎你的指正，谢谢！
+
 如果你感觉到，帮助了你，就star一个吧！
 
 最后是 [demo地址](https://github.com/weidongjiang/JWDInputOutputStream)
